@@ -52,6 +52,12 @@ class CloudStorageApplicationTests {
 		Assertions.assertEquals("Login", driver.getTitle());
 	}
 
+	@Test
+	public void testUserUnauthorized() {
+		driver.get("http://localhost:" + this.port + "/home");
+		Assertions.assertEquals("Login", driver.getTitle());
+	}
+
 	/**
 	 * PLEASE DO NOT DELETE THIS method.
 	 * Helper method for Udacity-supplied sanity checks.
@@ -167,7 +173,7 @@ class CloudStorageApplicationTests {
 		
 		// Try to access a random made-up URL.
 		driver.get("http://localhost:" + this.port + "/some-random-page");
-		Assertions.assertFalse(driver.getPageSource().contains("Whitelabel Error Page"));
+		Assertions.assertTrue(driver.getPageSource().contains("Whitelabel Error Page"));
 	}
 
 
@@ -314,7 +320,6 @@ class CloudStorageApplicationTests {
 
 	@Test
 	public void testAddEditDeleteCredential(){
-		doMockSignUp(firstName,lastName,username,password);
 		doLogIn(username,password);
 
 		String addNewUrl = "google.com";
