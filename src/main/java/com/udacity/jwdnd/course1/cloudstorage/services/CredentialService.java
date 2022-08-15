@@ -17,4 +17,19 @@ public class CredentialService {
 
         return credentialMapper.findCredentialsByUserId(userId);
     }
+
+    public void insert(Credentials credentials) {
+        credentialMapper.insert(credentials);
+
+    }
+
+    public void update(Credentials credentials) {
+
+        credentialMapper.update(credentials);
+    }
+
+    public void delete(Integer credentialId) {
+
+        credentialMapper.delete(credentialId);
+    }
 }
